@@ -4,7 +4,6 @@ import Dropdown from "../components/Dropdown";
 import { languages } from "../constants/values";
 import GapFill from "../components/GapFill";
 import { translateText } from "../api/translationServerAPI";
-import { PORT } from "../constants/environment";
 
 const HintTranslator = () => {
   const [text, setText] = useState("");
