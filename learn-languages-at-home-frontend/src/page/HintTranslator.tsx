@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Input from "../components/Input";
 import Dropdown from "../components/Dropdown";
 import { languages } from "../constants/values";
-import axios from "axios";
 import GapFill from "../components/GapFill";
+import { translateText } from "../api/translationServerAPI";
+import { PORT } from "../constants/environment";
 
 const HintTranslator = () => {
   const [text, setText] = useState("");
@@ -11,15 +12,9 @@ const HintTranslator = () => {
   const [translation, setTranslation] = useState("");
 
   const getTranslation = () => {
-    axios
-      .post("http://localhost:9600/translate", {
-        params: { language: selectedLanguage, text },
-      })
-      .then((res) => {
-        const translation = res.data.translations[0];
-        setTranslation(translation.text);
-      })
-      .catch((err) => console.error(err));
+    translateText(selectedLanguage, text).then((translations) => {
+      setTranslation(translations[0].text);
+    });
   };
 
   const handleReset = () => {
