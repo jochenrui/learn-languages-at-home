@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      network: host
+      target: frontend
+    working_dir: /frontend
+    environment:
+      PORT : ${PORT}
+    volumes:
+      - ./learn-languages-at-home-frontend:/frontend
+      - /learn-languages-at-home-frontend/node_modules
+    command: sh -c "npm rebuild esbuild && npm run dev"
+    ports:
+      - "3000:3000"
+      
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      network: host
+      target: backend
+    working_dir: /backend
+    environment:
+      PORT : ${PORT}
+      DEEPL_API_KEY : ${DEEPL_API_KEY}
+    volumes:
+      - ./translation-server:/backend
+      - /translation-server/node_modules
+    command: sh -c "npm run dev"
+    ports:
+      - "8080:8080"
+
+
