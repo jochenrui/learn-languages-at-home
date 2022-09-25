@@ -29,6 +29,13 @@ h3 {
   font-weight: 900;
 }
 
+.hint-translator {
+  width: 70%;
+  margin: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 mark {
   background: var(--color-accent);
   color: var(--color-text);
@@ -37,6 +44,7 @@ mark {
 }
 
 .card {
+  width: 100%;
   background: var(--color-background);
   padding: calc(4 * var(--size-bezel));
   margin-top: calc(4 * var(--size-bezel));
@@ -56,10 +64,6 @@ mark {
   --color-background: var(--color-signal);
   --color-accent: var(--color-light);
   color: var(--color-dark);
-}
-
-.card *:first-child {
-  margin-top: 0;
 }
 
 .l-design-widht {
@@ -137,13 +141,16 @@ mark {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 100%;
   -webkit-box-pack: right;
       -ms-flex-pack: right;
           justify-content: right;
 }
 
 .button-group * {
-  margin: 0 0.5em;
+  margin: 0.5em;
 }
 
 button {
@@ -209,6 +216,15 @@ button[type="reset"] {
   border: 3px solid currentColor;
   padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
   border-radius: var(--size-radius);
+}
+
+.gap-fill--valid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
 }
 
 .gap-fill--valid .gap-fill__word {
