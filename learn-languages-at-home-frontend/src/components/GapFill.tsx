@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import Word from "./Word";
 
 interface IGapFill {
   translation: string;
@@ -24,7 +25,7 @@ const replacer = (
 };
 
 const GapFill = ({ translation, difficulty }: IGapFill) => {
-  const [transformedText, setTransformedText] = useState<string>();
+  const [transformedText, setTransformedText] = useState<string[]>([]);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
 
   useEffect(() => {
@@ -32,29 +33,37 @@ const GapFill = ({ translation, difficulty }: IGapFill) => {
     const transformedStrings = splitStrings.map((part) =>
       replacer(part, difficulty)
     );
-    setTransformedText(transformedStrings.join(" "));
+    setTransformedText(transformedStrings);
     setIsCorrect(false);
   }, [translation]);
 
   useEffect(() => {
-    if (transformedText === translation) {
+    if (transformedText?.join(" ") === translation) {
       setIsCorrect(true);
     }
   }, [transformedText]);
 
-  const overwriteTransformedText = (text: string) => {
-    setTransformedText(text);
+  const overwriteTransformedText = (index: number) => {
+    return function (text: string) {
+      const transformedTextCopy = [...transformedText];
+      transformedTextCopy[index] = text;
+      setTransformedText(transformedTextCopy);
+    };
   };
+
+  const renderWords = transformedText?.map((word, index) => {
+    return <Word text={word} onChange={overwriteTransformedText(index)} />;
+  });
 
   return (
     <>
-      <input
-        className={isCorrect ? "input__field-correct" : "input__field"}
-        value={transformedText ? transformedText : translation}
-        onChange={(e) => overwriteTransformedText(e.target.value)}
-      />
+      <div className={isCorrect ? "gap-fill--valid" : "gap-fill"}>
+        {renderWords}
+      </div>
       <div className="button-group">
-        <button onClick={() => setTransformedText(translation)}>Reveal</button>
+        <button onClick={() => setTransformedText(translation.split(" "))}>
+          Reveal
+        </button>
       </div>
     </>
   );

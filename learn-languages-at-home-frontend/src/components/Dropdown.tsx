@@ -6,13 +6,13 @@ interface IDropdown {
 }
 
 const Dropdown = ({ options, onSelect }: IDropdown) => {
-  const renderOptions = options.map((option) => (
-    <option key={option} value={option}>
+  const renderOptions = ["Select language", ...options].map((option) => (
+    <option className="language-dropdown__language" key={option} value={option}>
       {option}
     </option>
   ));
   return (
-    <select className="dropdown" onChange={onSelect}>
+    <select className="language-dropdown" onChange={onSelect}>
       {renderOptions}
     </select>
   );

@@ -170,4 +170,53 @@ button[type="reset"] {
 .hidden {
   display: none;
 }
+
+.language-dropdown {
+  border-radius: var(--size-radius);
+  border: 3px solid currentColor;
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: -webkit-transform 120ms ease-in;
+  transition: -webkit-transform 120ms ease-in;
+  transition: transform 120ms ease-in;
+  transition: transform 120ms ease-in, -webkit-transform 120ms ease-in;
+  font-weight: bold;
+}
+
+.language-dropdown .language-dropdown__language {
+  border-radius: var(--size-radius);
+  border: 3px solid currentColor;
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: bold;
+}
+
+.gap-fill {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gap-fill .gap-fill__word {
+  width: auto;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  border: 3px solid currentColor;
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  border-radius: var(--size-radius);
+}
+
+.gap-fill--valid .gap-fill__word {
+  width: auto;
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+  border: 3px solid currentColor;
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  border-radius: var(--size-radius);
+}
 /*# sourceMappingURL=App.css.map */
