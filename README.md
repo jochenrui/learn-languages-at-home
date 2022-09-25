@@ -24,7 +24,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img width="571" alt="image" src="https://user-images.githubusercontent.com/36842990/190911103-c9332387-8da0-4574-9d56-4c6ba16cdc30.png">
+<img width="719" alt="image" src="https://user-images.githubusercontent.com/36842990/192138113-b3f80036-0d6a-4c7d-bf9c-4c1f6f64fe85.png">
+<img width="719" alt="image" src="https://user-images.githubusercontent.com/36842990/192138121-a045e3bf-c626-419f-a4fd-9a09b798690a.png">
+
 
 There are many ways to practise and learn new languages. Often times we find ourselves wondering how something is said in the language
 and while it's handy to just google the translation, we can also leverage this curiosity of ours to learn the new phrase.
