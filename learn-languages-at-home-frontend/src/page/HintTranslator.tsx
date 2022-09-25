@@ -22,7 +22,7 @@ const HintTranslator = () => {
   };
 
   return (
-    <div>
+    <div className="hint-translator">
       <h1>Learning Languages with DeepL</h1>
       <div className="card card--inverted">
         <Input
