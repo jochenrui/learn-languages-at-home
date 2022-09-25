@@ -1,28 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Word from "./Word";
+import { replaceRandomCharacters } from "../utils/textTransformation";
 
 interface IGapFill {
   translation: string;
   difficulty: number;
 }
-
-const replacer = (
-  string: string,
-  difficulty: number,
-  fillCharacter: string = "_"
-) => {
-  if (!string) return; // Do nothing if no string passed
-  const arr = [...string]; // Convert String to Array
-  const len = arr.length;
-  difficulty = Math.min(Math.abs(difficulty), len); // Fix to Positive and not > len
-  while (difficulty) {
-    const r = ~~(Math.random() * len);
-    if (Array.isArray(arr[r])) continue; // Skip if is array (not a character)
-    arr[r] = [fillCharacter]; // Insert an Array with the rep char
-    --difficulty;
-  }
-  return arr.flat().join("");
-};
 
 const GapFill = ({ translation, difficulty }: IGapFill) => {
   const [transformedText, setTransformedText] = useState<string[]>([]);
@@ -31,7 +14,7 @@ const GapFill = ({ translation, difficulty }: IGapFill) => {
   useEffect(() => {
     const splitStrings = translation.split(" ");
     const transformedStrings = splitStrings.map((part) =>
-      replacer(part, difficulty)
+      replaceRandomCharacters(part, difficulty)
     );
     setTransformedText(transformedStrings);
     setIsCorrect(false);
