@@ -1,3 +1,5 @@
+import React from "react";
+
 interface IWord {
   text: string;
   onChange: (value: string) => void;
