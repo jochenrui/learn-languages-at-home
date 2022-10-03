@@ -15,7 +15,7 @@ describe('Word', () => {
         })
     })
 
-    describe('When typing', () => {
+    describe('when typing', () => {
         it('onChange is called', async () => {
             const mockedFunction = {function: (value) => {}}
             const spy = jest.spyOn(mockedFunction, 'function')
