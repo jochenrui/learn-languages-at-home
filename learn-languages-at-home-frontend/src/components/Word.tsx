@@ -7,14 +7,12 @@ interface IWord {
 
 const Word = ({ text, onChange }: IWord) => {
   return (
-    <span
+    <input
+      value={text}
       className="gap-fill__word"
       role="textbox"
-      contentEditable={true}
       onChange={(e) => onChange(e.target.value)}
-    >
-      {text}
-    </span>
+    />
   );
 };
 
