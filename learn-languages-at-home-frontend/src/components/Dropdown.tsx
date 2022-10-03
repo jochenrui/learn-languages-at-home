@@ -2,7 +2,7 @@ import React, { ChangeEvent } from "react";
 
 interface IDropdown {
   options: string[];
-  onSelect: (e: ChangeEvent) => void;
+  onSelect: (e: string) => void;
 }
 
 const Dropdown = ({ options, onSelect }: IDropdown) => {
@@ -12,7 +12,10 @@ const Dropdown = ({ options, onSelect }: IDropdown) => {
     </option>
   ));
   return (
-    <select className="language-dropdown" onChange={onSelect}>
+    <select
+      className="language-dropdown"
+      onChange={(e) => onSelect(e.target.value)}
+    >
       {renderOptions}
     </select>
   );

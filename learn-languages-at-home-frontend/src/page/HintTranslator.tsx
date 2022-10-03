@@ -30,9 +30,7 @@ const HintTranslator = () => {
             text.length !== 0 ? "" : "Type something to translate..."
           }
           value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
+          onChange={setText}
         />
         <div className="button-group">
           <button onClick={getTranslation}>Send</button>
