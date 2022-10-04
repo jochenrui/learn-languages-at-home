@@ -35,12 +35,14 @@ const GapFill = ({ translation, difficulty }: IGapFill) => {
   };
 
   const renderWords = transformedText?.map((word, index) => {
-    return <Word text={word} onChange={overwriteTransformedText(index)} />;
+    return (
+      <Word key={word} text={word} onChange={overwriteTransformedText(index)} />
+    );
   });
 
   return (
     <>
-      <div className={isCorrect ? "gap-fill--valid" : "gap-fill"}>
+      <div role="list" className={isCorrect ? "gap-fill--valid" : "gap-fill"}>
         {renderWords}
       </div>
       <div className="button-group">
