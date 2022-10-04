@@ -9,7 +9,7 @@ export const replaceRandomCharacters = (
   string: string,
   fillCharacter: string = "_"
 ): string => {
-  let countOfReplacedChars = ~~(string.length / 3);
+  let countOfReplacedChars = ~~(string.length / 3) || 1;
 
   const transformedString = [...string]; // Convert String to Array
 
