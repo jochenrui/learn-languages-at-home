@@ -26,9 +26,7 @@ const HintTranslator = () => {
       <h1>Learning Languages with DeepL</h1>
       <div className="card card--inverted">
         <Input
-          placeholder={
-            text.length !== 0 ? "" : "Type something to translate..."
-          }
+          placeholder="Type something to translate..."
           value={text}
           onChange={setText}
         />
@@ -37,10 +35,7 @@ const HintTranslator = () => {
           <button onClick={handleReset} type="reset">
             Reset
           </button>
-          <Dropdown
-            options={languages}
-            onSelect={(e) => setSelectedLanguage(e.target.value)}
-          />
+          <Dropdown options={languages} onSelect={setSelectedLanguage} />
         </div>
         {translation.length > 0 && (
           <>

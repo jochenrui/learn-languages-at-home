@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 interface IInput {
   placeholder: string;
-  onChange: (e) => void;
+  onChange: (value: string) => void;
   value: string;
 }
 
@@ -36,9 +36,13 @@ const Input = ({ placeholder, onChange, value }: IInput) => {
         type="text"
         placeholder=" "
         value={value}
-        onChange={onChange}
+        onChange={(e) => {
+          onChange(e.target.value);
+        }}
       />
-      <span className="input__label">{placeholder}</span>
+      <span className="input__label" role="note">
+        {value.length > 0 ? "" : placeholder}
+      </span>
     </label>
   );
 };
