@@ -12,7 +12,7 @@ services:
     volumes:
       - ./learn-languages-at-home-frontend:/frontend
       - /learn-languages-at-home-frontend/node_modules
-    command: sh -c "npm rebuild esbuild && npm run dev"
+    command: sh -c "npm run dev"
     ports:
       - "3000:3000"
       
