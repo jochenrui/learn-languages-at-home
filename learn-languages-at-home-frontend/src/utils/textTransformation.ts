@@ -7,18 +7,17 @@
  */
 export const replaceRandomCharacters = (
   string: string,
-  difficulty: number,
   fillCharacter: string = "_"
 ): string => {
-  if (!string) return; // Do nothing if no string passed
-  const arr = [...string]; // Convert String to Array
-  const len = arr.length;
-  difficulty = Math.min(Math.abs(difficulty), len); // Fix to Positive and not > len
-  while (difficulty) {
-    const r = ~~(Math.random() * len);
-    if (Array.isArray(arr[r])) continue; // Skip if is array (not a character)
-    arr[r] = [fillCharacter]; // Insert an Array with the rep char
-    --difficulty;
+  let countOfReplacedChars = ~~(string.length / 3);
+
+  const transformedString = [...string]; // Convert String to Array
+
+  while (countOfReplacedChars !== 0) {
+    const index = ~~(Math.random() * string.length);
+    if (Array.isArray(transformedString[index])) continue; // Skip if is array (not a character)
+    transformedString[index] = [fillCharacter]; // Insert an Array with the rep char
+    --countOfReplacedChars;
   }
-  return arr.flat().join("");
+  return transformedString.flat().join("");
 };

@@ -4,17 +4,16 @@ import { replaceRandomCharacters } from "../utils/textTransformation";
 
 interface IGapFill {
   translation: string;
-  difficulty: number;
 }
 
-const GapFill = ({ translation, difficulty }: IGapFill) => {
+const GapFill = ({ translation }: IGapFill) => {
   const [transformedText, setTransformedText] = useState<string[]>([]);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
 
   useEffect(() => {
     const splitStrings = translation.split(" ");
     const transformedStrings = splitStrings.map((part) =>
-      replaceRandomCharacters(part, difficulty)
+      replaceRandomCharacters(part)
     );
     setTransformedText(transformedStrings);
     setIsCorrect(false);
