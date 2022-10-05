@@ -1,3 +1,8 @@
+/**
+ * Error class thrown when the API Key is invalid
+ * status: 403
+ * @param message (string): message to be displayed
+ */
 export class InvalidAPIKey extends Error {
   status = 403;
   constructor(message: string = "invalid API Key") {
@@ -11,6 +16,11 @@ export class InvalidAPIKey extends Error {
   }
 }
 
+/**
+ * Error class thrown when too many requsets are sent in a time limit
+ * status: 429
+ * @param message (string): message to be displayed
+ */
 export class TooManyRequests extends Error {
   status = 429;
   constructor(
@@ -26,6 +36,11 @@ export class TooManyRequests extends Error {
   }
 }
 
+/**
+ * Error class thrown when the monthly API call limits have been exceeded
+ * status: 456
+ * @param message (string): message to be displayed
+ */
 export class APILimitExceeded extends Error {
   status = 429;
   constructor(
